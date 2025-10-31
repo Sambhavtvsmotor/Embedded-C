@@ -1,0 +1,144 @@
+/*
+ * support.c
+ *
+ *  Created on: Oct 17, 2025
+ *      Author: Sambhav.Jain
+ */
+
+
+#include<stdio.h>
+#include<stdint.h>
+
+void wait_for_user_input(){
+	int c;
+	/* remove leftover chars up to newline */
+	while ((c = getchar()) != '\n' && c != EOF) { /* discard */ }
+
+	printf("Press Enter to exit\n");
+	getchar();
+}
+
+void invalid(int retVal){
+
+	if(!(retVal)){
+		printf("------Invalid input------\n");
+		wait_for_user_input();
+	}
+
+	return ;
+}
+
+void whileLoop(){
+
+	uint32_t a = 1;
+	printf("\n");
+	while( a <= 10 ){
+		printf("%d\n",a++);
+	}
+
+}
+
+void printEven(){
+
+	int32_t startNum;
+	int32_t endNum;
+	int ret1;
+	int ret2;
+
+
+	printf("Enter 2 number (start number and the end number)\n");
+	ret1 = scanf("%d",&startNum);
+	invalid(ret1);
+
+	ret2 = scanf("%d",&endNum);
+	invalid(ret2);
+
+	int count = 0;
+
+	printf("Even numbers are :");
+	if(startNum < endNum){
+		while(startNum <= endNum){
+			if( (startNum % 2 == 0)){
+				printf("%d ",startNum);
+				count++;
+			}
+			startNum++;
+		}
+	}
+	else if(endNum < startNum){
+		while(endNum <= startNum){
+			if( (endNum % 2 == 0)){
+				printf("%d ",endNum);
+				count++;
+			}
+			endNum++;
+		}
+	}
+
+
+
+
+	printf("\nTotal number of even Numbers are %d\n",count);
+}
+
+void printEvenUsingFor(){
+
+	int32_t startNum;
+	int32_t endNum;
+	int ret1;
+	int ret2;
+
+
+	printf("Enter 2 number (start number and the end number)\n");
+	ret1 = scanf("%d",&startNum);
+	invalid(ret1);
+
+	ret2 = scanf("%d",&endNum);
+	invalid(ret2);
+
+	int count = 0;
+
+	if(startNum < endNum){
+		printf("Even numbers are :");
+		for(int i = startNum; i <= endNum; ++i){
+			if( (i % 2 == 0)){
+				printf("%d ",i);
+				count++;
+			}
+		}
+	}
+	else if(endNum < startNum){
+		printf("Even numbers are :");
+		for(int i = endNum; i <= startNum; ++i){
+			if( (i % 2 == 0)){
+				printf("%d ",i);
+				count++;
+			}
+		}
+	}
+	else{
+		printf("\nNumbers are equal\n");
+	}
+
+	printf("\nTotal number of even Numbers are %d\n",count);
+}
+
+
+void pyramid(){
+
+	int32_t height;
+	int ret;
+
+	printf("Enter the height of the pyramid\n");
+	ret = scanf("%d",&height);
+
+	invalid(ret);
+
+	for(int row = 1; row <= height; row++ ){
+		for(int col = row; col > 0; col--){
+			printf("%2d ",col);
+		}
+		printf("\n");
+	}
+}
+

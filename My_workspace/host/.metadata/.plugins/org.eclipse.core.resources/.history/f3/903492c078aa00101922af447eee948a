@@ -1,0 +1,218 @@
+/*
+ * wait.c
+ *
+ *  Created on: Oct 16, 2025
+ *      Author: Sambhav.Jain
+ */
+
+#include<stdio.h>
+#include<stdint.h>
+#include<stdlib.h>
+#include"wait.h"
+
+void invalid(int retval){
+	if(!(retval)){
+		printf("Invalid input \n");
+		wait_for_user_input();
+		exit(0);
+	}
+
+	return ;
+}
+
+
+void wait_for_user_input(void) {
+    int c;
+    /* remove leftover chars up to newline */
+    while ((c = getchar()) != '\n' && c != EOF) { /* discard */ }
+
+    printf("Press Enter to exit\n");
+    getchar(); /* now waits for user to press Enter */
+}
+
+void area(void){
+	printf("*************MENU*************\n");
+	    printf("Enter your choice for which you want to calculate the area\n");
+	    printf("1. \'t\' for triangle\n");
+	    printf("2. \'r\' for rectangle\n");
+	    printf("3. \'c\' for circle\n");
+	    printf("4. \'s\' for square\n");
+	    printf("5. \'z\' for trapezoid\n");
+
+	    char choice;
+	    scanf(" %c",&choice);
+
+	    switch(choice){
+	        case 't': {
+	            float base, height;
+	            printf("Enter the base and height of the triangle\n");
+	            scanf("%f %f",&base,&height);
+	            float area = 0.5 * base * height;
+	            printf("The area of the triangle is %f\n",area);
+	            break;
+	        }
+	        case 'r': {
+	            float length, breadth;
+	            printf("Enter the length and breadth of the rectangle\n");
+	            scanf("%f %f",&length,&breadth);
+	            float area = length * breadth;
+	            printf("The area of the rectangle is %f\n",area);
+	            break;
+	        }
+	        case 'c': {
+	            float radius;
+	            printf("Enter the radius of the circle\n");
+	            scanf("%f",&radius);
+	            float area = 3.14159 * radius * radius;
+	            printf("The area of the circle is %f\n",area);
+	            break;
+	        }
+	        case 's': {
+	            float side;
+	            printf("Enter the side of the square\n");
+	            scanf("%f",&side);
+	            float area = side * side;
+	            printf("The area of the square is %f\n",area);
+	            break;
+	        }
+	        case 'z': {
+	            float a, b, height;
+	            printf("Enter the lengths of the two parallel sides and the height of the trapezoid\n");
+	            scanf("%f %f %f",&a,&b,&height);
+	            float area = 0.5 * (a + b) * height;
+	            printf("The area of the trapezoid is %f\n",area);
+	            break;
+	        }
+	        default:
+	            printf("Invalid choice\n");
+	            break;
+	    }
+
+}
+
+void vote(void){
+	int32_t age;
+	int ret;
+
+	printf("Enter your age\n");
+	ret = scanf("%d", &age);        // portable for int32_t
+	if (ret != 1) {
+		printf("Invalid input\n");
+
+//		wait_for_user_input();
+		return ;
+
+	}
+
+	if (age >= 18) {
+		printf("You are eligible to vote\n");
+	} else {
+		printf("You are not eligible to vote\n");
+	}
+}
+
+void compare(void){
+	int32_t a;
+	int32_t b;
+
+	printf("Enter two numbers\n");
+	scanf("%d %d",&a,&b);
+
+
+	if(a > b){
+		printf("%d is the largest number",a);
+	}
+	else if(b > a){
+		printf("%d is the largest number",b);
+	}
+	else{
+		printf("both are equal");
+	}
+}
+
+void tax(void){
+	int32_t income;
+	printf("Enter your income\n");
+	scanf("%d",&income);
+
+	double tax;
+
+	if(income <= 9525){
+		tax = 0;
+	}
+	else if(income <= 38700){
+		tax = 0.12 * (income - 9525);
+	}
+	else if(income <= 82500){
+		tax = 0.22 * (income - 38700) + (0.12 * (38700 - 9525));
+	}
+	else{
+		tax = (0.32 * (income - 82500)) + (0.22 * (82500 - 38700)) + (0.12 * (38700 - 9525));
+	}
+
+	printf("The tax to be paid is %lf",tax);
+}
+
+void bitwise(void){
+	int32_t num1;
+	int32_t num2;
+
+	int ret1;
+	int ret2;
+
+	printf("Enter number 1\n");
+	ret1 = scanf("%d",&num1);
+
+	invalid(ret1);
+
+	printf("Enter number 2\n");
+	ret2 = scanf("%d",&num2);
+
+	invalid(ret2);
+
+	int32_t bitAND;
+	int32_t bitOR;
+	int32_t bitNOTnum1;
+	int32_t bitNOTnum2;
+	int32_t bitXOR;
+
+	bitAND = num1 & num2;
+	bitOR = num1| num2;
+	bitNOTnum1 = ~num1;
+	bitNOTnum2 = ~num2;
+	bitXOR = num1 ^ num2;
+
+	printf("The BitWise AND results in %d\n",bitAND);
+	printf("The BitWise OR results in %d\n",bitOR);
+	printf("The BitWise NOT for num1 results in %d\n",bitNOTnum1);
+	printf("The BitWise NOT for num2 results in %d\n",bitNOTnum2);
+	printf("The BitWise XOR results in %d\n",bitXOR);
+
+}
+
+void evenodd(void){
+
+	int32_t num;
+	int ret;
+
+	printf("Enter the number\n");
+	ret = scanf("%d",&num);
+
+	invalid(ret);
+
+	int lsb;
+
+	lsb = num & 1;
+
+	if(lsb){
+		printf("The number entered is ODD\n");
+	}
+	else{
+		printf("The number entered is EVEN\n");
+	}
+
+}
+
+
+
+

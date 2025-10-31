@@ -1,0 +1,41 @@
+/*
+ * support.c
+ *
+ *  Created on: Oct 17, 2025
+ *      Author: Sambhav.Jain
+ */
+
+
+#include<stdio.h>
+#include<stdint.h>
+
+void wait_for_user_input(){
+	int c;
+	/* remove leftover chars up to newline */
+	while ((c = getchar()) != '\n' && c != EOF) { /* discard */ }
+
+	printf("Press Enter to exit\n");
+	getchar();
+}
+
+void invalid(int retVal){
+
+	if(!(retVal)){
+		printf("------Invalid input------\n");
+		wait_for_user_input();
+	}
+
+	return ;
+}
+
+void whileLoop(){
+
+	uint32_t a = 1;
+	while( a <= 10 ){
+		printf("%d\n",a++);
+	}
+
+}
+
+
+

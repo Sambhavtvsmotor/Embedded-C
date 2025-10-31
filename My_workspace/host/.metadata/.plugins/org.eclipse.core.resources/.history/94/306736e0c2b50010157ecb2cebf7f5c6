@@ -1,0 +1,61 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 31, 2025
+ *      Author: Sambhav.Jain
+ */
+
+
+#include<stdio.h>
+
+struct packet{
+    int crc;
+    char status;
+    int payload;
+    int bat;
+    int sensor;
+    int longAddr;
+    int shortAddr;
+    int addrMode;
+};
+
+int main() {
+    unsigned int packetValue;
+
+    printf("Enter the 32 bit packet value: ");
+    scanf("%x", &packetValue);
+
+    struct packet p;
+    // 0xffffabcd -> 1 | 11 | 1 1111 111 | 1 11 | 11 1 | 010 1011 1100 1 | 1 | 01
+
+    // crc = packetvsalue & 0x3;
+    // status = packetValue & 0x4;
+    // payload = packetValue & 0x7F8;
+    // bat = packetValue & 0x38000;
+    // sensor = packetValue & 0x1C0000;
+    // longAddr = packetValue & 0x1FE00000;
+    // shortMode = packetValue & 0x60000000;
+    // addrMode = packetValue & 0x80000000;
+
+    p.crc = packetValue & 0x3;
+    p.status = (packetValue & 0x4) >> 2;
+    p.payload = (packetValue & 0x7F8) >> 3;
+    p.bat = (packetValue & 0x38000) >> 15;
+    p.sensor = (packetValue & 0x1C0000) >> 18;
+    p.longAddr = (packetValue & 0x1FE00000) >> 21;
+    p.shortAddr = (packetValue & 0x60000000) >> 29;
+    p.addrMode = (packetValue & 0x80000000) >> 31;
+
+    printf("crc: %d, hex : %x \n", p.crc,p.crc);
+    printf("status: %d, hex: %x\n", p.status,p.status);
+    printf("payload: %d, hex: %x\n", p.payload,p.payload);
+    printf("bat: %d\n", p.bat);
+    printf("sensor: %d\n", p.sensor);
+    printf("longAddr: %d\n", p.longAddr);
+    printf("shortAddr: %d\n", p.shortAddr);
+    printf("addrMode: %d\n", p.addrMode);
+
+    printf("The size of the struct is %ld\n",sizeof(struct packet));
+
+    return 0;
+}

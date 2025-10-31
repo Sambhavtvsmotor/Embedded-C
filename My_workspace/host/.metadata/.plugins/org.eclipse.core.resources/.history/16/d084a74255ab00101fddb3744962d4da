@@ -1,0 +1,46 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 17, 2025
+ *      Author: Sambhav.Jain
+ */
+
+
+#include<stdio.h>
+#include<stdint.h>
+
+int main(){
+
+	printf("This is the Looping Section exercise\n");
+	printf("Please see the below Menu and choose the exercise you want to check\n");
+	printf("==================Exercises==================\n");
+	printf("1. Exercise 01\n");
+//	printf("2. Exercise 02\n");
+//	printf("3. Exercise 03\n");
+//	printf("4. Exercise 04\n");
+//	printf("From here onwards the operators section starts\n");
+//	printf("5. Exercise 05\n");
+//	printf("6. Exercise 06\n");
+//	printf("7. Exercise 07\n");
+//	printf("8. Exercise 08\n");
+	printf("Enter the number (1,2....)\n");
+
+	uint32_t choice;
+	int ret;
+
+	ret = scanf("%d",&choice);
+
+	invalid(ret);
+
+	switch(choice){
+		case 1: whileLoop();
+				wait_for_user_input();
+				break;
+		default : wait_for_user_input();
+				break;
+	}
+
+
+
+	return 0;
+}

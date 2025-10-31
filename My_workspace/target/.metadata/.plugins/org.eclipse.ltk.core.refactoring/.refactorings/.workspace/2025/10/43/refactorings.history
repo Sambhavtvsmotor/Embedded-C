@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;PA01LED&apos; to &apos;pin_read&apos;" description="Rename resource &apos;PA01LED&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/PA01LED" name="pin_read" stamp="1761111806983" updateReferences="true"/>
+</session>

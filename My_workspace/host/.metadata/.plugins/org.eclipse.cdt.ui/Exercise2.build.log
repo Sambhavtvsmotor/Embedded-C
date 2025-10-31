@@ -1,0 +1,7 @@
+10:00:09 **** Rebuild of configuration Debug for project Exercise2 ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o main.o "..\\main.c" 
+gcc -o Exercise2.exe main.o 
+
+10:00:11 Build Finished. 0 errors, 0 warnings. (took 1s.908ms)
+

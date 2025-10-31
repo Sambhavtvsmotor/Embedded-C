@@ -1,0 +1,37 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 22, 2025
+ *      Author: Sambhav.Jain
+ */
+
+
+#include<stdio.h>
+#include<stdint.h>
+
+struct CarModel {
+	unsigned int carNumber;
+	uint32_t carPrice;
+	uint16_t carMaxSpeed;
+	float carWeight;
+};
+
+int main(){
+	struct CarModel car1, car2;
+	car1.carNumber = 2021;
+	car1.carPrice=15000;
+	car1.carMaxSpeed=220;
+	car1.carWeight=1330;
+	car2.carNumber = 4031;
+	car2.carPrice=35000;
+	car2.carMaxSpeed=160;
+	car2.carWeight=1900.96;
+
+	printf("%u %d %d %f",car1.carNumber,car1.carPrice,car1.carMaxSpeed,car1.carWeight);
+	printf("%u %d %d %f",car2.carNumber,car2.carPrice,car2.carMaxSpeed,car2.carWeight);
+//	printf(car2);
+
+	getch();
+	return 0;
+
+}

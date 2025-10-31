@@ -1,0 +1,48 @@
+/*
+ * exercise04.c
+ *
+ *  Created on: Oct 16, 2025
+ *      Author: Sambhav.Jain
+ */
+
+
+#include<stdio.h>
+#include<stdint.h>
+#include"wait.h"
+
+int main(){
+
+	printf("This file contains the exercises related to Decision Making\n");
+	printf("Please see the below Menu and choose the exercise you want to check\n");
+	printf("==================Exercises==================\n");
+	printf("1. Exercise 01\n");
+	printf("2. Exercise 02\n");
+	printf("3. Exercise 03\n");
+	printf("4. Exercise 04\n");
+	printf("Enter the number (1,2....\n");
+
+	int32_t choice;
+	int ret = scanf("%d",&choice);
+
+	if(!(ret)){
+		printf("Invalid input\n");
+		wait_for_user_input();
+	}
+
+	switch(choice){
+		case 1: vote();
+				wait_for_user_input();
+				break;
+		case 2: wait_for_user_input();
+				break;
+		case 3: wait_for_user_input();
+				break;
+		case 4: area();
+				wait_for_user_input();
+				break;
+		default: wait_for_user_input();
+					break;
+	}
+
+    return 0;
+}

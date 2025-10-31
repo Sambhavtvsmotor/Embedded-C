@@ -1,0 +1,11 @@
+22:13:01 **** Rebuild of configuration Debug for project structure ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o main.o "..\\main.c" 
+..\main.c: In function 'main':
+..\main.c:35:14: warning: unused variable 'ch' [-Wunused-variable]
+   35 |         char ch = getchar();
+      |              ^~
+gcc -o structure.exe main.o 
+
+22:13:02 Build Finished. 0 errors, 1 warnings. (took 461ms)
+

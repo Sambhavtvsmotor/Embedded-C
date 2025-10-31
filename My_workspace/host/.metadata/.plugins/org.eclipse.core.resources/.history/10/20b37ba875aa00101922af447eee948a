@@ -1,0 +1,24 @@
+/*
+ * wait.h
+ *
+ *  Created on: Oct 16, 2025
+ *      Author: Sambhav.Jain
+ */
+
+#ifndef WAIT_H_
+#define WAIT_H_
+
+void wait_for_user_input(void);
+
+void area(void);
+
+void vote(void);
+
+void compare(void);
+
+void tax(void);
+
+void bitwise(void);
+
+
+#endif /* WAIT_H_ */

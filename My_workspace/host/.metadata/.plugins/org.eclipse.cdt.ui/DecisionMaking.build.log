@@ -1,0 +1,8 @@
+16:37:24 **** Incremental Build of configuration Debug for project DecisionMaking ****
+Info: Internal Builder is used for build
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o exercise04.o "..\\exercise04.c" 
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o wait.o "..\\wait.c" 
+gcc -o DecisionMaking.exe exercise04.o wait.o 
+
+16:37:27 Build Finished. 0 errors, 0 warnings. (took 3s.23ms)
+
